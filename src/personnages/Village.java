@@ -17,9 +17,7 @@ public class Village {
 	}
 	
 	public ajouterHabitant(Gaulois nvhabitant) {
-		if this.nbVillageois >= this.nbVillageoisMaximum{
-			System.out.println(" Pas de place ");
-		}
+		if this.nbVillageois >= this.nbVillageoisMaximum{System.out.println(" Pas de place ");}
 		else {
 			this.nbVillageois = this.nbVillageois + 1;
 			villageaois[this.nbvillageaois]= nvhabitant;

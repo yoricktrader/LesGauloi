@@ -3,7 +3,7 @@ package personnages;
 public class Romain {
 
 	private String nom;
-	private int force;
+	private int force>=0;
 
 	public Romain(String nom, int force) {
 		this.nom = nom;
@@ -30,8 +30,9 @@ public class Romain {
 			parler("J'abandonne...");
 		}
 	}
+
 	public static void main(String[] args) {
-		Romain mero = new Romain("Mero", 3);
+		Romain mero = new Romain("Mero", -6);
 		mero.prendreParole();
 		mero.parler("aie");
 	}
