@@ -6,44 +6,47 @@ public class Village {
 	private int nbVillageois = 0;
 	private int nbVillageoisMaximum;
 
-	public village(String nom, int nbVillageoisMaximum) {
+	public Village(String nom, int nbVillageoisMaximum) {
 		this.nom = nom;
 		this.nbVillageoisMaximum = nbVillageoisMaximum;
-		this.villageaois = new Gaulois[nbVillageoisMaximum];
+		this.villageois = new Gaulois[nbVillageoisMaximum];
 	}
 
 	public String getNom() {
 		return nom;
 	}
+	public static void nvchef(Chef chef, Village village) {
+		village.chef=chef;
+	}
 	
-	public ajouterHabitant(Gaulois nvhabitant) {
-		if this.nbVillageois >= this.nbVillageoisMaximum{System.out.println(" Pas de place ");}
+	public static void ajouterHabitant(Gaulois nvhabitant,Village village) {
+		if (village.nbVillageois >= village.nbVillageoisMaximum){System.out.println(" Pas de place ");}
 		else {
-			this.nbVillageois = this.nbVillageois + 1;
-			villageaois[this.nbvillageaois]= nvhabitant;
+			village.nbVillageois = village.nbVillageois + 1;
+			village.villageois[village.nbVillageois]= nvhabitant;
 		}
 	}
 	
-	public trouverHabitant(int indice) {
+	public Gaulois trouverHabitant(int indice) {
 		return villageois[indice];
 	}
 	
-	public void afficherVillageois(Village village) {
+	public static void afficherVillageois(Village village) {
 
-        for (int i = 1; i < nbVillageois; i++) {
-        	if village.villageois[i] == Gaulois {System.out.println("Villageois : " + village.villageois[i].getNom());}
+        for (int i =0; i < village.nbVillageois; i++) {
+        	if (village.villageois[i] instanceof  Gaulois) {System.out.println("Villageois : " + village.villageois[i].getNom());}
         	else {System.out.println("Chef du village : " + village.villageois[i].getNom());}
         }
     }
-}
 	
 	public static void main(String[] args) {
-		Village villages = new Village("Village des Irreductibles");
-		village(vilage.nom, 30);
-		Chef abraracourcix = new Chef("Abraracourcix",6,villages);
-		Gaulois asterix = new Gaulois("Asterix",8,villages);
-		Gaulois oblixe = new Gaulois("Obleixe",25,villages);
-		afficherVillageois(villages);
+		Village ville = new Village("Village des Irreductibles",30);
+		Chef abraracourcix = new Chef("Abraracourcix",6,ville);
+		Gaulois asterix = new Gaulois("Asterix",8);
+		ajouterHabitant(asterix,ville);
+		Gaulois obelixe = new Gaulois("Obelixe",25);
+		ajouterHabitant(obelixe,ville);
+		afficherVillageois(ville);
 	}
 	
 }

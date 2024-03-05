@@ -3,7 +3,11 @@ package personnages;
 public class Romain {
 
 	private String nom;
-	private int force>=0;
+	private int force;
+	
+	private void forcemin() {
+		if (this.force<0){System.out.println("La force doit etre positive");}
+	}
 
 	public Romain(String nom, int force) {
 		this.nom = nom;
