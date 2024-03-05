@@ -5,11 +5,13 @@ public class Village {
 	private Gaulois[] villageois ;
 	private int nbVillageois = 0;
 	private int nbVillageoisMaximum;
+	private Chef chef;
 
 	public Village(String nom, int nbVillageoisMaximum) {
 		this.nom = nom;
 		this.nbVillageoisMaximum = nbVillageoisMaximum;
 		this.villageois = new Gaulois[nbVillageoisMaximum];
+		this.chef = chef;
 	}
 
 	public String getNom() {
@@ -32,16 +34,15 @@ public class Village {
 	}
 	
 	public static void afficherVillageois(Village village) {
-
-        for (int i =0; i < village.nbVillageois; i++) {
-        	if (village.villageois[i] instanceof  Gaulois) {System.out.println("Villageois : " + village.villageois[i].getNom());}
-        	else {System.out.println("Chef du village : " + village.villageois[i].getNom());}
-        }
-    }
+		
+		System.out.println("Chef du village : " + village.chef.getNom());
+        for (int i =0; i < village.nbVillageois; i++) {System.out.println("Villageois : " + village.villageois[i].getNom());}
+	}
 	
 	public static void main(String[] args) {
 		Village ville = new Village("Village des Irreductibles",30);
 		Chef abraracourcix = new Chef("Abraracourcix",6,ville);
+		nvchef(abraracourcix,ville);
 		Gaulois asterix = new Gaulois("Asterix",8);
 		ajouterHabitant(asterix,ville);
 		Gaulois obelixe = new Gaulois("Obelixe",25);
