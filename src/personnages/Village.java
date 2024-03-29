@@ -30,13 +30,13 @@ public class Village {
 	}
 	
 	public Gaulois trouverHabitant(int indice) {
+		System.out.println("Villageois : " + villageois[indice].getNom());
 		return villageois[indice];
 	}
 	
 	public static void afficherVillageois(Village village) {
-		
-		System.out.println("Chef du village : " + village.chef.getNom());
-        for (int i =0; i < village.nbVillageois; i++) {System.out.println("Villageois : " + village.villageois[i].getNom());}
+		System.out.println("Dans le village du chef " + village.chef.getNom() + " vivent les gaulois");
+        for (int i =1; i <= village.nbVillageois; i++) {System.out.println("- " + village.villageois[i].getNom());}
 	}
 	
 	public static void main(String[] args) {
@@ -45,9 +45,13 @@ public class Village {
 		nvchef(abraracourcix,ville);
 		Gaulois asterix = new Gaulois("Asterix",8);
 		ajouterHabitant(asterix,ville);
+		afficherVillageois(ville);
 		Gaulois obelixe = new Gaulois("Obelixe",25);
 		ajouterHabitant(obelixe,ville);
 		afficherVillageois(ville);
+		//Gaulois gaulois = ville.trouverHabitant(1); 
+		//System.out.println(gaulois); Gaulois [nom=Asterix, force=8, effetPotion=1]
+
 	}
 	
 }
